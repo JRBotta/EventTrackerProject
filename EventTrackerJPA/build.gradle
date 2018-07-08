@@ -40,6 +40,7 @@ sourceSets {
   }
  }
 
+
 // set query location for dependencies
 repositories {
   mavenCentral()

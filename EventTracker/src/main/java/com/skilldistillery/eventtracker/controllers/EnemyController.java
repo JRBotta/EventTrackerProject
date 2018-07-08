@@ -23,6 +23,10 @@ public class EnemyController {
 	public List<Enemy> getAllEnemies() {
 	  return dao.getAllEnemies();
 	}
+	@RequestMapping(path = "enemies/avg", method = RequestMethod.GET)
+	public Double getEnemyAverageHealth() {
+		return dao.getEnemyAverage();
+	}
 	
 	@RequestMapping(path = "enemies/{id}", method = RequestMethod.GET)
 	public Enemy getEnemy(@PathVariable int id) {

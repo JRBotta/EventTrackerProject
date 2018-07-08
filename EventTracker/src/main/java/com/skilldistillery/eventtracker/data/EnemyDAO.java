@@ -18,4 +18,6 @@ public interface EnemyDAO {
 
 	Boolean deleteEnemy(int id);
 
+	Double getEnemyAverage();
+
 }

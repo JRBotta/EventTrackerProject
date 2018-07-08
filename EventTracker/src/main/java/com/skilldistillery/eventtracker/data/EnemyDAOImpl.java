@@ -91,4 +91,10 @@ public class EnemyDAOImpl implements EnemyDAO {
 		return true;
 	}
 
+	@Override
+	public Double getEnemyAverage() {
+		String query = "SELECT avg(e.hp) FROM Enemy e";
+		return em.createQuery(query, Double.class).getSingleResult();
+	}
+
 }
