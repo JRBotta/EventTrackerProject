@@ -1,17 +1,22 @@
+var avg = 0;
 window.addEventListener('load', function(e) {
 	console.log('document loaded');
 	init();
 	document.getElementById('btn').addEventListener('click', create);
-	var avg;
-	getAvg();
+	
 
 });
+
+
+getAvg();
 
 function init() {
 	getThings();
 }
 
 function getThings() {
+	avg = 0;
+	getAvg();
 
 	var xhr = new XMLHttpRequest();
 
@@ -149,12 +154,15 @@ function demolish(e) {
 	xhr.send(null);
 }
 function update(e) {
-	var form = document.getElementById('update');
 	e.preventDefault();
+	var form = document.getElementById('update');
 	var enemy = e.target.enemy;
+	if(form.hp.value !== '') {
 	enemy.hp = form.hp.value;
-
+	}
+	if(form.name.value !== '') {
 	enemy.name = form.name.value;
+	}
 
 	var xhr = new XMLHttpRequest();
 	var path = "api/enemies/" + enemy.id;
@@ -166,7 +174,6 @@ function update(e) {
 			getThings();
 			displayEnemy(e);
 		}
-
 		if (xhr.readyState === 4 && xhr.status >= 400) {
 			console.log("Enemy not updated");
 		}
@@ -190,7 +197,7 @@ function create() {
 		}
 
 		if (xhr.readyState === 4 && xhr.status >= 400) {
-			actorData.textContent = "Enemy not created";
+			console.log("Enemy not created");
 		}
 	};
 	xhr.send(JSON.stringify(enemy));

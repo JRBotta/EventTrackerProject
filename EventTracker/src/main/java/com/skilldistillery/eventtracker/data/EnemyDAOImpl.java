@@ -54,6 +54,7 @@ public class EnemyDAOImpl implements EnemyDAO {
 			newEnemy = mapper.readValue(json, Enemy.class);
 			enemy.setName(newEnemy.getName());
 			enemy.setHp(newEnemy.getHp());
+			enemy.setBonus(newEnemy.getBonus());
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -72,6 +73,10 @@ public class EnemyDAOImpl implements EnemyDAO {
 			if (newEnemy.getName() != null && newEnemy.getName() != "") {
 				enemy.setName(newEnemy.getName());
 			}
+			if (newEnemy.getImg() != null && newEnemy.getImg() != "") {
+				enemy.setImg(newEnemy.getImg());
+			}
+			enemy.setBonus(newEnemy.getBonus());
 			enemy.setHp(newEnemy.getHp());
 		} catch (Exception e) {
 			e.printStackTrace();
