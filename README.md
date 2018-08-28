@@ -20,6 +20,11 @@
 * Spring Boot
 
 ### How to Run
+
+http://18.217.143.254:8080/EventTracker/
+
+OR
+
 In Postman:
 
 GET http://18.217.143.254:8080/EventTracker/api/enemies
